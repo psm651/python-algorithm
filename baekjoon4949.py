@@ -1,22 +1,30 @@
-string_arr= list(input().split('.'))
-stack = []
+string_arr= list()
 compare_dic = {')':'(', ']':'['}
 
-print('------------------------------------')
-print(string_arr[0])
-for i in range(len(string_arr)):
-    sentence = list(string_arr[i])
+def check_couple(sentence):
+    stack = []
     for j in range(len(sentence)):
         if sentence[j] == '(' or sentence[j] =='[':
             stack.append(sentence[j])
         elif sentence[j] == ')' or sentence[j] ==']':
+            if not stack:
+                return 'no'
             top = stack.pop()
             if top != compare_dic[sentence[j]]:
-                #print('no')
-                break
-    if len(stack) != 0:
-        pass
-        #print('no')
+                return 'no'
+    if not stack:
+        return 'yes'
     else :
-        pass
-        #print('yes')
+        return 'no'
+
+#input받는 부분
+line = ''
+while True:
+    line = input()
+    if line =='.':
+        break
+    string_arr.append(line)
+
+for i in range(len(string_arr)):
+    print(check_couple(string_arr[i]))
+
