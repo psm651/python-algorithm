@@ -5,6 +5,7 @@ mettingList = []
 for i in range(n):
     a, b = map(int,sys.stdin.readline().split())
     mettingList.append((a, b))
+mettingList.sort(key=lambda x: x[0])
 mettingList.sort(key=lambda x: x[1])
 
 def getMaxMettingCount():
@@ -40,7 +41,3 @@ print(getMaxMettingCount())
 #     return max(mettingCountList)
 
 #print(getMaxMettingCount())
-
-'''
-[(0, 6), (1, 4), (2, 13), (3, 5), (3, 8), (5, 7), (5, 9), (6, 10), (8, 11), (8, 12), (12, 14)]
-'''
