@@ -1,11 +1,21 @@
 n = int(input())
 
-def recursivFunc(n):
-    if n == 0:
-        return 0
-    elif n == 1:
-        return 1
-    else :
-        return recursivFunc(n-1) + recursivFunc(n-2)
 
-print(recursivFunc(n))
+def fibonachi(n):
+    cache = [-1 for _ in range(n+1)]
+
+    def iterate(n):
+    	# 기저사례 1.
+        if n < 2:
+            return n
+	    # 기저사례 2.
+        if cache[n] != -1:
+            return cache[n]
+
+	    # 기저사례 충족 못할 시 값을 실제로 구함
+        cache[n] = iterate(n-1) + iterate(n-2)
+        return cache[n]
+    return iterate(n)
+
+
+print (fibonachi(n))
