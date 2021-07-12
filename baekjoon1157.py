@@ -7,7 +7,7 @@ for i in words_list:
     word_count.append(count)
 
 print(max(word_count))
-if(word_count.count(max(word_count)) >= 2):
+if(word_count.count(max(word_count)) > 2):
     print('?')
 else:
     print(words_list[(word_count.index(max(word_count)))].upper())
